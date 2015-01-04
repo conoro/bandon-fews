@@ -1,3 +1,5 @@
+.openshift
+
 # Do not commit the various private keys ets
 # If running on OpenShift, need to set all of these up as Env Variables
 config.json
