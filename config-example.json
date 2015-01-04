@@ -1,0 +1,7 @@
+{
+  "client_id" : "INSERT YOUR GOOGLE API CLIENT ID HERE",
+  "client_secret": "INSERT YOUR GOOGLE API CLIENT SECRET HERE",
+  "redirect_url": "INSERT A URL THAT GOOGLE WILL REDIRECT TO AFTER AUTH FLOW",
+  "kimono_url": "https://www.kimonolabs.com/api/cr79egwi?apikey=9a56606ef7abb9eb6bed83211566279f",
+  "fusiontables_id": "103YIcARoxuaWT7NfZ8mVBzY554sF_3ONYC1N3DE"
+}

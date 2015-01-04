@@ -1,0 +1,24 @@
+{
+  "name": "bandonfews-nodejs",
+  "version": "0.0.1",
+  "description": "Record Bandon river level from Bandon FEWS site into Google Fusion Tables",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "flood",
+    "water",
+    "river"
+  ],
+  "author": "Conor O'Neill",
+  "license": "Apache License, Version 2.0",
+  "dependencies": {
+    "readline": "0.0.5",
+    "moment": "~2.8.4",
+    "request": "~2.51.0",
+    "googleapis": "~1.0.22",
+    "cron": "~1.0.5",
+    "cheerio": "~0.18.0"
+  }
+}
