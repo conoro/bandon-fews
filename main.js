@@ -18,7 +18,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- var CronJob = require('cron').CronJob;
+var CronJob = require('cron').CronJob;
 var readline = require('readline');
 var fs = require('fs');
 var google = require('googleapis');

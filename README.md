@@ -1,6 +1,6 @@
 # Bandon FEWS Small Data Scraper in Node.js
 ## Introduction
-Cork County Council have a site called [Bandon FEWS](http://www.bandonfloodwarning.ie/) (Bandon Flood Early Warning System). When the Bandon river hits certain levels near Bandon town, it alerts registered users via SMS in case they need to take emergency measures. It's a very useful service. However the historical river level data is not available in any useful form and that's the point of this project.
+Cork County Council has a site called [Bandon FEWS](http://www.bandonfloodwarning.ie/) (Bandon Flood Early Warning System). When the Bandon river hits certain levels near Bandon town, it alerts registered users via SMS in case they need to take emergency measures. It's a very useful service. However the historical river level data is not available in any useful form and that's the point of this project.
 
 In November 2011, I created a simple Python script which scrapes the site every 15 minutes and saves the river level to a Google Fusions Table "spreadsheet" [here](https://www.google.com/fusiontables/DataSource?docid=103YIcARoxuaWT7NfZ8mVBzY554sF_3ONYC1N3DE#rows:id=1). This now has (with a few interruptions) 3 years of data which anyone can query, re-use or slice-dice and mashup with weather info. Not that anyone has done this :-)
 
@@ -8,7 +8,7 @@ The script has been running on a small home Ubuntu fileserver all this time but 
 
 The code started as Google's example G+ OAuth code but now has the bulk of the functionality completed. It is running reliably under Supervisor on an [ODROID-C1](http://www.hardkernel.com/main/products/prdt_info.php?g_code=G141578608433) single-board computer on my desk.
 
-To use it for something else on Fusion Tables, the main thing you need to do is setup an App in the [Google API Console](https://console.developers.google.com/project?authuser=0), enable Fusion Tables API access and use those keys in the placeholders in the confile files.
+To use it for something else on Fusion Tables, the main thing you need to do is setup an App in the [Google API Console](https://console.developers.google.com/project?authuser=0), enable Fusion Tables API access and use those keys in the placeholders in the config files.
 
 ## Files
 * main.js - The main code
@@ -36,4 +36,4 @@ If you are running on OpenShift, you need a way to set various keys etc without 
 * ???
 
 ## Release Notes
-* 04/01/2015 - First public usable version
+* 04/01/2015 - First public usable version and [blogpost](http://conoroneill.net/bandon-flood-warning-data-now-scraped-to-google-fusion-tables-using-nodejs)
