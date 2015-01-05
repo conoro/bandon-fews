@@ -125,34 +125,39 @@ var job = new CronJob('*/15 * * * *', function(){
       } else {
         var $ = cheerio.load(body);
         var waterLevel = $('td').eq(8).text().trim();
-        var lastUpdate = $('div').eq(1).text().trim().split(' ');
-        var lastMoment = moment(lastUpdate[1] + " " + lastUpdate[2].substring(0, lastUpdate[2].length-1) + " " + lastUpdate[3] + " " + lastUpdate[5] + " GMT", "DD MMM YYYY HH:mm z");
-        var fusionDate = lastMoment.format("DD-MMM-YYYY HH:mm");
+        // Make sure we parsed a number. If not, do not save in Fusion Tables
+        if (!isNaN(waterLevel)){
+          var lastUpdate = $('div').eq(1).text().trim().split(' ');
+          var lastMoment = moment(lastUpdate[1] + " " + lastUpdate[2].substring(0, lastUpdate[2].length-1) + " " + lastUpdate[3] + " " + lastUpdate[5] + " GMT", "DD MMM YYYY HH:mm z");
+          var fusionDate = lastMoment.format("DD-MMM-YYYY HH:mm");
 
-        var checkLast = "SELECT * FROM " + config.fusiontables_id + " WHERE datetime='" + fusionDate + "'";
+          var checkLast = "SELECT * FROM " + config.fusiontables_id + " WHERE datetime='" + fusionDate + "'";
 
-        // See if that level/time is already in Fusion Tables
-        fusion.query.sqlGet({auth: oauth2Client, sql: checkLast}, function(err, response) {
-          if (err) {
-            console.log('A query error occured', err);
-            return;
-          }
-          // if not in Fusion Tables then insert
-          if(!(response.rows)){
-            var insertNew = "INSERT INTO " + config.fusiontables_id + " (riverlevel, datetime) VALUES ('" + waterLevel + "', '" + fusionDate + "')";
-            fusion.query.sql({auth: oauth2Client, sql: insertNew}, function(err, response) {
-              if (err) {
-                console.log('An insert error occured', err);
-                return;
-              }
-              console.log('inserted new row', response.rows[0]);
+          // See if that level/time is already in Fusion Tables
+          fusion.query.sqlGet({auth: oauth2Client, sql: checkLast}, function(err, response) {
+            if (err) {
+              console.log('A query error occured', err);
               return;
-            });
-          } else {
-            console.log("no new updates");
-            return;
-          }
-        });
+            }
+            // if not in Fusion Tables then insert
+            if(!(response.rows)){
+              var insertNew = "INSERT INTO " + config.fusiontables_id + " (riverlevel, datetime) VALUES ('" + waterLevel + "', '" + fusionDate + "')";
+              fusion.query.sql({auth: oauth2Client, sql: insertNew}, function(err, response) {
+                if (err) {
+                  console.log('An insert error occured', err);
+                  return;
+                }
+                console.log('inserted new row', response.rows[0]);
+                return;
+              });
+            } else {
+              console.log("no new updates");
+              return;
+            }
+          });
+        } else{
+          console.log("error parsing the Bandon FEWS site");
+        }
       }
     });
   });

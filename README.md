@@ -29,11 +29,13 @@ If you are running on OpenShift, you need a way to set various keys etc without 
 
 ## TO-DO
 * The first time run is currently broken for the OAuth credentials. Easy fix coming.
+* Token refresh is not handled yet. But never needed in older Python code. Initial tokens never expired.
 * OpenShift is SIGINT'ing it for some unknown reason after a random time which is why it's running on the ODROID for the moment
 * It should have a simple Express based API so others can avoid the pain of dealing with the Fusion Tables API for basic queries
 * It should have a simple landing page showing the latest water level and maybe a graph
 * It should add back in the functionality of the old Python code for posting to COSM
 * ???
 
-## Release Notes
+## Changelog
 * 04/01/2015 - First public usable version and [blogpost](http://conoroneill.net/bandon-flood-warning-data-now-scraped-to-google-fusion-tables-using-nodejs)
+* 05/01/2015 - Add error handling for parsing issues in case FEWS site changes and breaks the scraping
