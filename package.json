@@ -18,7 +18,7 @@
     "moment": "~2.8.4",
     "request": "~2.51.0",
     "googleapis": "~1.0.22",
-    "cron": "~1.0.5",
+    "cron": "*",
     "cheerio": "~0.18.0"
   }
 }

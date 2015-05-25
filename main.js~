@@ -127,7 +127,6 @@ var job = new CronJob('*/15 * * * *', function(){
         var waterLevel = $('td').eq(8).text().trim();
         // Make sure we parsed a number. If not, do not save in Fusion Tables
         if (!isNaN(waterLevel)){
-          console.log(waterLevel);
           var lastUpdate = $('div').eq(1).text().trim().split(' ');
           if (lastUpdate){
             console.log(lastUpdate);
