@@ -15,7 +15,7 @@
   "license": "Apache License, Version 2.0",
   "dependencies": {
     "readline": "0.0.5",
-    "moment": "~2.8.4",
+    "moment": "~> 2.11.2",
     "request": "~2.51.0",
     "googleapis": "~1.0.22",
     "cron": "*",
