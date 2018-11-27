@@ -14,11 +14,11 @@
   "author": "Conor O'Neill",
   "license": "Apache License, Version 2.0",
   "dependencies": {
-    "readline": "0.0.5",
-    "moment": "~2.8.4",
-    "request": "~2.51.0",
-    "googleapis": "~1.0.22",
+    "cheerio": "^0.20.0",
     "cron": "*",
-    "cheerio": "~0.18.0"
+    "googleapis": "^12.1.0",
+    "moment": "^2.19.3",
+    "readline": "0.0.5",
+    "request": "^2.84.0"
   }
 }
