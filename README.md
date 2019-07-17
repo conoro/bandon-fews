@@ -1,4 +1,7 @@
 # Bandon FEWS Small Data Scraper in Node.js
+
+UPDATE JULY 2019: The Bandon FEWS system is being decommissioned so this code will no longer work. The OPW and Cork CoCo believe the extensive flood prevention measures they have implemented have rendered the service unnecessary. Based on the mess that is the Fish Run and Fish Kill Pond (aka the new weir), I have my doubts.
+
 ## Introduction
 Cork County Council has a site called [Bandon FEWS](http://www.bandonfloodwarning.ie/) (Bandon Flood Early Warning System). When the Bandon river hits certain levels near Bandon town, it alerts registered users via SMS in case they need to take emergency measures. It's a very useful service. However the historical river level data is not available in any useful form and that's the point of this project.
 
